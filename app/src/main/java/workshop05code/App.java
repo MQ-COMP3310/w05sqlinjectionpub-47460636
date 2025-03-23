@@ -74,8 +74,10 @@ public class App {
             String guess = scanner.nextLine();
 
             while (!guess.equals("q")) {
+                //adding regex to check for 4 charachters word
+                if(guess.matches("^[a-z]$")){
                 System.out.println("You've guessed '" + guess+"'.");
-
+                
                 if (wordleDatabaseConnection.isValidWord(guess)) { 
                     System.out.println("Success! It is in the the list.\n");
                 }else{
@@ -84,7 +86,7 @@ public class App {
 
                 System.out.print("Enter a 4 letter word for a guess or q to quit: " );
                 guess = scanner.nextLine();
-            }
+            }}
         } catch (NoSuchElementException | IllegalStateException e) {
             e.printStackTrace();
         }
